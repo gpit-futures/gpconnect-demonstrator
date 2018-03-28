@@ -202,7 +202,6 @@ module.exports = function(grunt) {
                 src: [
                     '<%= yeoman.dist %>/scripts/{,*/}*.js',
                     '<%= yeoman.dist %>/styles/{,*/}*.css',
-                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                     '<%= yeoman.dist %>/styles/fonts/*'
                 ]
             }
@@ -230,10 +229,7 @@ module.exports = function(grunt) {
         // Performs rewrites based on filerev and the useminPrepare configuration
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-            options: {
-                assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
-            }
+            css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
         },
 
         // The following *-min tasks will produce minified files in the dist folder
@@ -262,27 +258,6 @@ module.exports = function(grunt) {
         //   dist: {}
         // },
 
-        imagemin: {
-            dist: {
-                files: [{
-                        expand: true,
-                        cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.{png,jpg,jpeg,gif}',
-                        dest: '<%= yeoman.dist %>/images'
-                    }]
-            }
-        },
-
-        svgmin: {
-            dist: {
-                files: [{
-                        expand: true,
-                        cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.svg',
-                        dest: '<%= yeoman.dist %>/images'
-                    }]
-            }
-        },
 
         htmlmin: {
             dist: {
@@ -336,7 +311,7 @@ module.exports = function(grunt) {
                             '*.html',
                             'dummy-data/*',
                             'views/{,*/,*/*/}*.html',
-                            'images/{,*/}*.{webp}',
+                            'images/{,*/}*.{webp,png}',
                             'fonts/*',
                             'styles/{,*/}/*.{woff,eot,svg,ttf}',
                             'styles/**/svgs/*',
