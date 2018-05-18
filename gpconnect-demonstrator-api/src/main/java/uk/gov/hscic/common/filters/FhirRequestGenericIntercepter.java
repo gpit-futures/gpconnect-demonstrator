@@ -31,7 +31,7 @@ import uk.gov.hscic.auth.CertificateValidator;
 import uk.gov.hscic.common.ldap.model.ProviderRouting;
 
 @Component
-public class FhirRequestGenericIntercepter extends InterceptorAdapter {
+public class FhirRequestGenericIntercepter extends InterceptorAdapter {    
     private static final Logger LOG = Logger.getLogger(FhirRequestGenericIntercepter.class);
 
     private static final String SSP_FROM = "Ssp-From";
@@ -163,6 +163,14 @@ public class FhirRequestGenericIntercepter extends InterceptorAdapter {
     @Override
     public BaseServerResponseException preProcessOutgoingException(RequestDetails theRequestDetails,
             Throwable theException, HttpServletRequest theServletRequest) throws ServletException {
+        
+        String report = (String)theServletRequest.getAttribute("Report");
+        report = report + "\n\n" + "preProcessOutgoingException: " + theException.getMessage() + "\n";
+        for(StackTraceElement line : theException.getStackTrace()){
+            report = report + "\n" + line.toString();
+        }
+        theServletRequest.setAttribute("Report",report);
+        
         // This string match is really crude and it's not great, but I can't see
         // how else to pick up on just the relevant exceptions!
         if (theException instanceof InvalidRequestException && theException.getMessage().contains("Invalid attribute value")) {
