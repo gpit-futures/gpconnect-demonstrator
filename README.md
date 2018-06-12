@@ -202,4 +202,27 @@ Each failing test is documented below by feature area
 |---|---|
 |I perform a getSchedule with invalid end date and or start date parameters|The Hapi FHIR Java library interprets blank/empty String params as null as opposed to passing the data direct to the demonstrator. Since the values are null the code falls into a different block of logic, one designed to return a 400 instead of a 422 as would be the case if the blank values were passed through uninterpreted .|
 
+
+## Docker
+### Building docker image
+To build docker image you need to have built application at first (especially target/ folder).
+Next step is to copy config/ directory into target/.
+Finally to build docker image go to the gpconnect-demosntrator main directory and execute:
+```
+docker build -f Dockerfile -t gpcdocker .
+```
+Where "gpcdocker" is name that you give to your image.
+
+### Manage docker image
+Basically what I would suggest is to install "kinematic" tool, which make things simplier. It's a tool that allow you to manage your docker containers by graphic interface.
+
+To create container in kinematic click on "+ NEW" button" -> "MY Images" -> "CREATE" (on image that you built before). On the left side should appear your recently created container, click on it.
+Switch to "Settings" tab, and on the General tab set environment variables like DATABASE_ADDRESS and DATABASE_PORT to your own.
+At the end click save to persist you changes. Container should restart automatically.
+
+Docker will run container on random port, if you would like to change it switch to "Hostname/Ports" tab and specify you own port on the "PUBLISHED IP:PORT" column.
+
+https://store.docker.com/editions/community/docker-ce-desktop-windows
+
+
 ##### ENJOY!
