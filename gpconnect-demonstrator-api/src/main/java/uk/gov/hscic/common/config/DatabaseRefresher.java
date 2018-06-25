@@ -45,6 +45,7 @@ public class DatabaseRefresher {
     public void resetDatabase() throws IOException {
         runSql("create_tables.sql");
         
+        //Files that have to run before the patient data is added (or constraints cause failures)
         runSql("populate_appointment_data.sql");
         runSql("populate_general_practitioners_table.sql");
         runSql("populate_medical_departments_table.sql");
