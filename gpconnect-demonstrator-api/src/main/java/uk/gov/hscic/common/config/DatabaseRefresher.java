@@ -44,13 +44,17 @@ public class DatabaseRefresher {
     // Reset entire db on startup
     public void resetDatabase() throws IOException {
         runSql("create_tables.sql");
+        
+        runSql("populate_appointment_data.sql");
+        runSql("populate_general_practitioners_table.sql");
+        runSql("populate_medical_departments_table.sql");
+        runSql("populate_medications_table.sql");
 
         Files.list(Paths.get(configPath + "sql/"))
                 .map(Path::getFileName)
                 .map(Path::toString)
-                .filter(filename -> filename.startsWith("populate"))
+                .filter(filename -> filename.startsWith("populate_patient"))
                 .filter(filename -> !filename.equals("populate_patients_table.sql"))
-                .filter(filename -> !filename.equals("generate_uids.sql"))
                 .forEach(this::runSql);
 
         runSql("generate_uids.sql");
