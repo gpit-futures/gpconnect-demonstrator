@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     // Configurable paths for the application
     var appConfig = {
         app: require('./bower.json').appPath || 'app',
-        dist: '../gpconnect-demonstrator-api/src/main/webapp'
+        dist: './dist'
     };
 
     // Define the configuration for all the tasks
@@ -465,9 +465,6 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'newer:jshint',
-        'newer:jscs',
-        'test',
         'build'
     ]);
 };
