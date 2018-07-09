@@ -30,7 +30,7 @@ angular.module('gpConnect')
 
     if (isElectron()) {
       console.log('is electron app')
-      window.Bridge.updatePatientContext = patient => {
+      window.Bridge.updatePatientContext = function(patient) {
         console.log('PATIENT CONTEXT SET: ')
         console.log(patient)
         $scope.searchFunction(patient.identifier[0].value)
@@ -39,7 +39,7 @@ angular.module('gpConnect')
 
     if (isElectron()) {
       console.log('is electron app')
-      window.Bridge.endPatientContext = patient => {
+      window.Bridge.endPatientContext = function(patient) {
         console.log('PATIENT CONTEXT ENDED: ')
         console.log(patient)
         goToMainSearch()
@@ -93,7 +93,7 @@ angular.module('gpConnect')
     var goToMainSearch = function () {
       $state.go('main-search');
     };
-    
+
     $scope.saveBtnText = "Save";
     $scope.saveTestingConfig = function () {
         usSpinnerService.spin('search-spinner');
@@ -113,5 +113,5 @@ angular.module('gpConnect')
     $scope.btnReset = function () {
         $scope.saveBtnText = "Save";
     };
-    
+
   });
