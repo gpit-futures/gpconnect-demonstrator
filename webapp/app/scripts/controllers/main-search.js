@@ -23,6 +23,29 @@ angular.module('gpConnect')
       $scope.searchExpression = '';
     };
 
+    // ADDING ELECTRON PATIENT CONTEXT EVENTS
+    var isElectron = function () {
+      return 'Bridge' in window
+    };
+
+    if (isElectron()) {
+      console.log('is electron app')
+      window.Bridge.updatePatientContext = patient => {
+        console.log('PATIENT CONTEXT SET: ')
+        console.log(patient)
+        $scope.searchFunction(patient.identifier[0].value)
+      }
+    }
+
+    if (isElectron()) {
+      console.log('is electron app')
+      window.Bridge.endPatientContext = patient => {
+        console.log('PATIENT CONTEXT ENDED: ')
+        console.log(patient)
+        goToMainSearch()
+      }
+    }
+
     $scope.searchFunction = function (expression) {
       var nhsNumber = expression.replace(/\s+/g, '');
 
@@ -65,6 +88,10 @@ angular.module('gpConnect')
         patientId: nhsNumber,
         filter: $scope.query
       });
+    };
+
+    var goToMainSearch = function () {
+      $state.go('main-search');
     };
     
     $scope.saveBtnText = "Save";

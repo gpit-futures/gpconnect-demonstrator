@@ -34,35 +34,35 @@ angular.module('gpConnect')
       switch (toState.name) {
         case 'main-search':
           previousState = '';
-          pageHeader = 'Welcome';
+          pageHeader = 'Appointments Module';
           previousPage = '';
           mainWidth = 12;
           detailWidth = 0;
           break;
       case 'patients-list':
         previousState = 'main-search';
-        pageHeader = 'Patient Lists';
+        pageHeader = 'Appointments: Patient Lists';
         previousPage = 'Patient Dashboard';
         mainWidth = 12;
         detailWidth = 0;
         break;
       case 'patients-summary':
         previousState = 'patients-list';
-        pageHeader = 'Patient Summary';
+        pageHeader = 'Appointments: Patient Summary';
         previousPage = 'Patient Lists';
         mainWidth = 11;
         detailWidth = 0;
         break;
       case 'patients-lookup':
         previousState = '';
-        pageHeader = 'Patients lookup';
+        pageHeader = 'Appointments: Patients lookup';
         previousPage = '';
         mainWidth = 6;
         detailWidth = 6;
         break;
       default:
         previousState = 'patients-list';
-        pageHeader = 'Patients Details';
+        pageHeader = 'Appointments: Patients Details';
         previousPage = 'Patient Lists';
         mainWidth = 11;
         detailWidth = 0;

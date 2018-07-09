@@ -1,4 +1,4 @@
-<div class="col-md-12 searchPagePanel">
+<!-- <div class="col-md-12 searchPagePanel">
 
     <div id="testingConfigHeader" class="col-md-12"  ng-click="isTestingConfigBodyOpen = !isTestingConfigBodyOpen">
         <i class="fa fa-chevron-down"></i> Demonstrator - Testing Configuration
@@ -79,27 +79,28 @@
 
         <button class="btn btn-success configSaveButton" ng-click="saveTestingConfig()"  ng-blur="btnReset()" >{{saveBtnText}}</button>
     </div>
-</div>
+</div> -->
 
 <div class="col-md-12">
     <div class="main-search">
         <div class="search-left-inner-addon">
-            <input class="form-control" placeholder="Enter NHS Number..." type="text" ng-model="searchExpression"/>
-            <div class="pull-right">
-                <a ng-click="openAdvancedSearch()">Advanced search</a>
+            <!-- <input class="form-control" placeholder="Enter NHS Number..." type="text" ng-model="searchExpression"/> -->
+            <div class="fa-align-center">
+                <!-- <a ng-click="openAdvancedSearch()">Advanced search</a> -->
+                <h1 style="color:black;text-align: center">No patient selected</h1>
             </div>
         </div>
 
-        <button class="btn btn-info mainSearchButton" ng-click="searchFunction(searchExpression)"><i class="fa fa-search"></i> Search</button>
+        <!-- <button class="btn btn-info mainSearchButton" ng-click="searchFunction(searchExpression)"><i class="fa fa-search"></i> Search</button>
 
         <div class="alert alert-danger alert-dismissible fade in no-patient-found-error" role="alert" ng-if="errorOccurred">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" ng-click="setErrorOccurred(false)">×</span>
             </button>
             <h4>We couldn't find a patient corresponding to that NHS Number</h4>
-        </div>
+        </div> -->
 
-        <div class="alert alert-danger alert-dismissible fade in no-patient-found-error" role="alert">
+        <!-- <div class="alert alert-danger alert-dismissible fade in no-patient-found-error" role="alert">
             <h6>If you are unsure about which NHS Numbers work, why not try one of the ones below:</h6>
             <p>
                 <button type="button" class="btn btn-default" ng-click="populateSearchField('947 671 9931')">{{ '9476719931' | formatNHSNumber}}</button>
@@ -108,7 +109,7 @@
                 <button type="button" class="btn btn-default" ng-click="populateSearchField('947 671 9958')">{{ '9476719958' | formatNHSNumber}}</button>
                 <button type="button" class="btn btn-default" ng-click="populateSearchField('900 000 0068')">{{ '9000000068' | formatNHSNumber }}</button>
             </p>
-        </div>
+        </div> -->
 
     </div>
 </div>
