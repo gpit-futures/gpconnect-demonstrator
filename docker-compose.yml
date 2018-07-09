@@ -12,7 +12,7 @@ services:
   gpconnect-api:
     image: gpitfutures/gpconnect
     ports:
-      - 19191:9000
+      - 9000:19191
     networks: 
       - gpconnect-network
     environment:
