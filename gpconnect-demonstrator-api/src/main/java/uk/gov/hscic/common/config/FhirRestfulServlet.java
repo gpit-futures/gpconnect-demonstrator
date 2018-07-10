@@ -95,9 +95,9 @@ public class FhirRestfulServlet extends RestfulServer {
                 SystemHeader.X_REQUESTED_WITH));
 
         registerInterceptor(new CorsInterceptor(config));
-        registerInterceptor(applicationContext.getBean(FhirRequestAuthInterceptor.class));
+        //registerInterceptor(applicationContext.getBean(FhirRequestAuthInterceptor.class));
         registerInterceptor(applicationContext.getBean(FhirRequestGenericIntercepter.class));
-        registerInterceptor(applicationContext.getBean(PatientJwtValidator.class));
+        //registerInterceptor(applicationContext.getBean(PatientJwtValidator.class));
         
         GpConnectServerCapabilityStatementProvider capStatementProvider = new GpConnectServerCapabilityStatementProvider(this);
         super.setServerConformanceProvider(capStatementProvider);

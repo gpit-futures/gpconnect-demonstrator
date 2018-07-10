@@ -80,29 +80,29 @@ public class FhirRequestGenericIntercepter extends InterceptorAdapter {
 
     @Override
     public boolean incomingRequestPreProcessed(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
-        certificateValidator.validateRequest(httpRequest); // Validate
+        //certificateValidator.validateRequest(httpRequest); // Validate
                                                            // certificate first!
 
         // Check there is a Ssp-TraceID header
-        if (StringUtils.isBlank(httpRequest.getHeader(SystemHeader.SSP_TRACEID))) {
-            throwInvalidRequestException(SystemHeader.SSP_TRACEID + "header blank");
-        }
+        //if (StringUtils.isBlank(httpRequest.getHeader(SystemHeader.SSP_TRACEID))) {
+        //    throwInvalidRequestException(SystemHeader.SSP_TRACEID + "header blank");
+        //}
 
         // Check there is a SSP-From header
-        if (StringUtils.isBlank(httpRequest.getHeader(SystemHeader.SSP_FROM))) {
-            throwInvalidRequestException(SystemHeader.SSP_FROM + " header blank");
-        }
+        //if (StringUtils.isBlank(httpRequest.getHeader(SystemHeader.SSP_FROM))) {
+        //    throwInvalidRequestException(SystemHeader.SSP_FROM + " header blank");
+        //}
 
         // Check the SSP-To header is present and directed to our system
-        String toASIDHeader = httpRequest.getHeader(SystemHeader.SSP_TO);
-        if (StringUtils.isBlank(toASIDHeader)) {
-            throwInvalidRequestException(SystemHeader.SSP_TO + " header blank");
-        } else if (systemSspToHeader != null && !toASIDHeader.equalsIgnoreCase(systemSspToHeader)) {
-            // We loaded our ASID but the SSP-To header does not match the value
-            throwBadRequestException(SystemHeader.SSP_TO + " header does not match ASID of system");
-        }
+//        String toASIDHeader = httpRequest.getHeader(SystemHeader.SSP_TO);
+//        if (StringUtils.isBlank(toASIDHeader)) {
+//            throwInvalidRequestException(SystemHeader.SSP_TO + " header blank");
+//        } else if (systemSspToHeader != null && !toASIDHeader.equalsIgnoreCase(systemSspToHeader)) {
+//            // We loaded our ASID but the SSP-To header does not match the value
+//            throwBadRequestException(SystemHeader.SSP_TO + " header does not match ASID of system");
+//        }
 
-        validateInteraction(httpRequest);
+//        validateInteraction(httpRequest);
 
         return true;
     }

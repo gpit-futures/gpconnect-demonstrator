@@ -38,7 +38,7 @@ public class PatientJwtValidator extends AuthorizationInterceptor {
 
     @Override
     public List<IAuthRule> buildRuleList(RequestDetails requestDetails) {
-       validateNhsNumbers(requestDetails);
+//       validateNhsNumbers(requestDetails);
 
        return new RuleBuilder().allowAll().build();
     }
