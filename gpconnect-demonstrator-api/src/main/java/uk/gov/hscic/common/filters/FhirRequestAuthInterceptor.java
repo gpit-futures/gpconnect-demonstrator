@@ -64,11 +64,10 @@ public class FhirRequestAuthInterceptor extends AuthorizationInterceptor {
 
     @Override
     public List<IAuthRule> buildRuleList(RequestDetails requestDetails) {
-        WebToken webToken = webTokenFactory.getWebToken(requestDetails, futureRequestLeeway);
-
-        validateClaim(webToken, requestDetails);
-        validateIdentifier(webToken, requestDetails);
-
+        //WebToken webToken = webTokenFactory.getWebToken(requestDetails, futureRequestLeeway);
+        //validateClaim(webToken, requestDetails);
+        //validateIdentifier(webToken, requestDetails);
+        
         return new RuleBuilder().allowAll().build();
     }
 
