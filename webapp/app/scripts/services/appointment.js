@@ -122,6 +122,31 @@ angular.module('gpConnect').factory('Appointment', ['$rootScope', '$http', 'Fhir
         });
     };
 
+    // Add new appointment function here.
+    // ec2-34-246-89-210.eu-west-1.compute.amazonaws.com:9191
+
+    var tempToken;
+
+    window.Bridge.updateTokenContext = token => {
+        console.log('token set: ')
+        console.log(token)
+        tempToken = token
+        console.log('token get: ')
+        console.log(tempToken)
+      }
+
+    var addAppointment = function (practiceOdsCode, appointment) {
+            return $http.post(
+                    'http://ec2-34-246-89-210.eu-west-1.compute.amazonaws.com:9191/appointments/create/' + practiceOdsCode,
+                    appointment,
+                    {
+                        headers: {
+                            'Authorization': 'Bearer ' + tempToken.access_token
+                        }
+                    }
+            );
+    };
+
     var save = function (practiceOdsCode, patientNHSNumber, appointmentId, appointment) {
         return FhirEndpointLookup.getEndpoint(practiceOdsCode, "urn:nhs:names:services:gpconnect:fhir:rest:read:appointment-1").then(function(response) {
             var endpointLookupResult = response;
@@ -173,6 +198,7 @@ angular.module('gpConnect').factory('Appointment', ['$rootScope', '$http', 'Fhir
         searchForFreeSlots: searchForFreeSlots,
         findResourceByReference: findResourceByReference,
         create: create,
+        addAppointment: addAppointment,
         save: save,
 		cancel: cancel
     };

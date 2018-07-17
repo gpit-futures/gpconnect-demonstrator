@@ -71,6 +71,10 @@ angular.module('gpConnect')
                 if (response.status != "201") {
                     $scope.validationError = "An error occurred storing appointment, please try booking again";
                 }
+
+                // send to appointment service
+                Appointment.addAppointment(appointmentBookingParams.location.odsCode, $scope.appointmentCreate)
+
                 $modalInstance.close();
                 $state.reload();
                 usSpinnerService.stop('appointmentCreate-spinner');
