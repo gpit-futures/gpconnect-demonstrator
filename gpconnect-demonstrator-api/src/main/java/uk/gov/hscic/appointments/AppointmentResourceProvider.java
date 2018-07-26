@@ -308,33 +308,34 @@ public class AppointmentResourceProvider implements IResourceProvider {
         List<SlotDetail> slots = new ArrayList<>();
 
         for (Long slotId : appointmentDetail.getSlotIds()) {
-            SlotDetail slotDetail = slotSearch.findSlotByID(slotId);
-
-            if (slotDetail == null) {
-                throw OperationOutcomeFactory.buildOperationOutcomeException(
-                        new UnprocessableEntityException(
-                                String.format("Slot resource reference value %s is not a valid resource.", slotId)),
-                        SystemCode.INVALID_RESOURCE, IssueType.INVALID);
-            }
-            
-            if (slotDetail.getFreeBusyType().equals("BUSY")) {
-            	throw OperationOutcomeFactory.buildOperationOutcomeException(
-                        new ResourceVersionConflictException(
-                                String.format("Slot is already in use.", slotId)),
-                        SystemCode.DUPLICATE_REJECTED, IssueType.CONFLICT);
-            }
-
+            SlotDetail slotDetail = new SlotDetail();
+            slotDetail.setId(slotId);
+//
+//            if (slotDetail == null) {
+//                throw OperationOutcomeFactory.buildOperationOutcomeException(
+//                        new UnprocessableEntityException(
+//                                String.format("Slot resource reference value %s is not a valid resource.", slotId)),
+//                        SystemCode.INVALID_RESOURCE, IssueType.INVALID);
+//            }
+//            
+//            if (slotDetail.getFreeBusyType().equals("BUSY")) {
+//            	throw OperationOutcomeFactory.buildOperationOutcomeException(
+//                        new ResourceVersionConflictException(
+//                                String.format("Slot is already in use.", slotId)),
+//                        SystemCode.DUPLICATE_REJECTED, IssueType.CONFLICT);
+//            }
+//
             slots.add(slotDetail);
         }
 
         appointmentDetail = appointmentStore.saveAppointment(appointmentDetail, slots);
 
-        for (SlotDetail slot : slots) {
-            // slot.setAppointmentId(appointmentDetail.getId());
-            slot.setFreeBusyType("BUSY");
-            slot.setLastUpdated(new Date());
-            slotStore.saveSlot(slot);
-        }
+//        for (SlotDetail slot : slots) {
+//            // slot.setAppointmentId(appointmentDetail.getId());
+//            slot.setFreeBusyType("BUSY");
+//            slot.setLastUpdated(new Date());
+//            slotStore.saveSlot(slot);
+//        }
 
         // Build response containing the new resource id
         MethodOutcome methodOutcome = new MethodOutcome();
