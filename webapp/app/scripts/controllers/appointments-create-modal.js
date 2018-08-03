@@ -44,7 +44,9 @@ angular.module('gpConnect')
     $scope.appointmentCreate.participant = [
         {
             "actor": {
-                "reference": "Patient/" + appointmentBookingParams.patientFhirId
+                "reference": "Patient/" + appointmentBookingParams.patientFhirId,
+                "display": $scope.patientNhsNumber,
+                "identifier" : appointmentBookingParams.patient.identifier
             },
             "status": "accepted"
         },
