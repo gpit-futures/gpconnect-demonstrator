@@ -1,0 +1,29 @@
+version: "3"
+services:
+  gpconnect-db:
+    image: mariadb
+    networks: 
+      - gpconnect-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=answer
+      - MYSQL_PASSWORD=answer99q
+      - MYSQL_DATABASE=gpconnect
+  gpconnect-api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 9000:19191
+    networks: 
+      - gpconnect-network
+    environment:
+      - DATABASE_ADDRESS=gpconnect-db
+    links:
+      - gpconnect-db
+    depends_on:
+      - gpconnect-db
+
+networks: 
+  gpconnect-network:
+    driver: bridge
