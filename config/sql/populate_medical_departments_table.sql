@@ -10,7 +10,7 @@ VALUES
 INSERT INTO gpconnect.organizations
   (id,org_code,org_name,lastUpdated)
 VALUES
-  (1,'GPC001','GP Connect Demonstrator','2016-07-25 12:00:00'),
+  (1,'GPC002','GP Connect Demonstrator 2','2016-07-25 12:00:00'),
   (2,'R1A14','Test GP Care Trust','2016-07-25 12:00:00'),
   (3,'R1A17','Test GP Second Care Trust','2016-07-25 12:00:00'),
   (4,'R1A14','The Hockey Surgery','2016-07-25 12:00:00'),

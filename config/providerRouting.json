@@ -1,25 +1,25 @@
 {
     "spineProxy": "",
-    "ASID": "200000000359",
+    "ASID": "200000000360",
     "practices": [
         {
             "id": "1",
-            "odsCode": "GPC001",
-            "name": "GP Connect Demonstrator",
-            "interactionIds": ["*"],
-            "endpointURL": "http://ec2-35-176-230-224.eu-west-2.compute.amazonaws.com/fhir",
-            "apiEndpointURL": "http://ec2-35-176-230-224.eu-west-2.compute.amazonaws.com/api",
-            "ASID": "200000000359",
-            "orgType": "GP Practice"
-        },
-        {
-            "id": "2",
             "odsCode": "GPC002",
             "name": "GP Connect Demonstrator 2",
             "interactionIds": ["*"],
             "endpointURL": "http://ec2-34-246-89-210.eu-west-1.compute.amazonaws.com/fhir",
             "apiEndpointURL": "http://ec2-34-246-89-210.eu-west-1.compute.amazonaws.com/api",
             "ASID": "200000000360",
+            "orgType": "GP Practice"
+        },
+        {
+            "id": "2",
+            "odsCode": "GPC001",
+            "name": "GP Connect Demonstrator",
+            "interactionIds": ["*"],
+            "endpointURL": "http://ec2-35-176-230-224.eu-west-2.compute.amazonaws.com/fhir",
+            "apiEndpointURL": "http://ec2-35-176-230-224.eu-west-2.compute.amazonaws.com/api",
+            "ASID": "200000000359",
             "orgType": "GP Practice"
         }
     ]

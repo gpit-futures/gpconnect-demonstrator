@@ -46,8 +46,8 @@ VALUES
 INSERT INTO gpconnect.locations
   (id,name,org_ods_code,org_ods_code_name,site_ods_code,site_ods_code_name,status,lastUpdated,address_id)
 VALUES
-  (1,'Building A','GPC001','GP Connect Demonstrator','Z26556','BUILDING A','active','2016-07-25 12:00:00',1),
-  (2,'Building B','GPC001','GP Connect Demonstrator','Z33436','BUILDING B','active','2016-07-25 12:00:00',2),
+  (1,'Building A','GPC002','GP Connect Demonstrator 2','Z26556','BUILDING A','active','2016-07-25 12:00:00',1),
+  (2,'Building B','GPC002','GP Connect Demonstrator 2','Z33436','BUILDING B','active','2016-07-25 12:00:00',2),
   (3,'Building C','R1A14','Test GP Care Trust','Z33433','BUILDING C','suspended','2016-07-25 12:00:00',3),
   (4,'Annex A','R1A15','The Hepworth Surgery','Z33435','ANNEX A','active','2016-07-25 12:00:00',4),
   (5,'Building 5','R3B46','New GP Practice','Z12345','ANNEX','active','2016-07-25 12:00:00',5),
