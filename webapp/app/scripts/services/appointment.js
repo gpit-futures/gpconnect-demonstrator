@@ -128,11 +128,7 @@ angular.module('gpConnect').factory('Appointment', ['$rootScope', '$http', 'Fhir
     var tempToken;
 
     window.Bridge.updateTokenContext = function(token) {
-        console.log('token set: ')
-        console.log(token)
         tempToken = token
-        console.log('token get: ')
-        console.log(tempToken)
       }
 
     var addAppointment = function (practiceOdsCode, appointment) {

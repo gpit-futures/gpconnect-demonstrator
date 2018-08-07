@@ -31,17 +31,10 @@ angular.module('gpConnect')
     if (isElectron()) {
       console.log('is electron app')
       window.Bridge.updatePatientContext = function(patient) {
-        console.log('PATIENT CONTEXT SET: ')
-        console.log(patient)
         $scope.searchFunction(patient.identifier[0].value)
       }
-    }
 
-    if (isElectron()) {
-      console.log('is electron app')
       window.Bridge.endPatientContext = function(patient) {
-        console.log('PATIENT CONTEXT ENDED: ')
-        console.log(patient)
         goToMainSearch()
       }
     }
